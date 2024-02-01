@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:clinica_core/clinica_core.dart';
 import 'package:clinicas_self_service/src/repositories/user/user_repository.dart';
@@ -21,8 +22,7 @@ class UserRepositoryImpl implements UserRepository {
 
       return Right(accessToken);
     } on DioException catch (e, s) {
-      // ANALISAR PROBLEMA
-      // log('Erro ao realizar login', error: e, stackTrace: s);
+      log('Erro ao realizar login', error: e, stackTrace: s);
 
       return switch (e) {
         DioException(response: Response(statusCode: HttpStatus.forbidden)?) =>

@@ -1,7 +1,8 @@
 import 'package:clinica_core/clinica_core.dart';
 import 'package:clinicas_self_service/src/binding/clinica_application_binding.dart';
 import 'package:clinicas_self_service/src/core/env.dart';
-import 'package:clinicas_self_service/src/pages/splash_page.dart';
+import 'package:clinicas_self_service/src/modules/auth/auth_module.dart';
+import 'package:clinicas_self_service/src/pages/spash_pages/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
@@ -17,13 +18,14 @@ class ClinicaSelfService extends StatelessWidget {
     Env.backendBaseUrl;
     return ClinicasCoreConfig(
       title: 'Lab Clinicas Auto Atendimento',
-      biding: ClinicaApplicationBinding(),
+      binding: ClinicaApplicationBinding(),
       pagesBuilders: [
         FlutterGetItPageBuilder(
           page: (_) => const SpashPage(),
           path: '/',
         )
       ],
+      modules: [AuthModule()],
     );
   }
 }
