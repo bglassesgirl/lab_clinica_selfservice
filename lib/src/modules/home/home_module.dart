@@ -1,4 +1,4 @@
-import 'package:clinicas_self_service/src/modules/auth/home/home_page.dart';
+import 'package:clinicas_self_service/src/modules/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
