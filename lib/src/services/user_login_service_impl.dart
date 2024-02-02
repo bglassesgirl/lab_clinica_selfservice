@@ -19,7 +19,7 @@ class UserLoginServiceImpl implements UserLoginService {
       // ignore: unused_local_variable
       case Left(value: AuthError(:var message)):
         return Left(ServiceException(message: 'Erro ao realizar login'));
-      case Left(value: AuthUnautrorizedException()):
+      case Left(value: AuthUnauthorizedException()):
         return Left(ServiceException(message: 'Login ou senha inválido'));
       case Right(value: final accessToken):
         final sp = await SharedPreferences.getInstance();

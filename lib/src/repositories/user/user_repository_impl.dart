@@ -26,7 +26,7 @@ class UserRepositoryImpl implements UserRepository {
 
       return switch (e) {
         DioException(response: Response(statusCode: HttpStatus.forbidden)?) =>
-          Left(AuthUnautrorizedException()),
+          Left(AuthUnauthorizedException()),
         _ => Left(AuthError(message: 'Erro ao realizar login'))
       };
     }
