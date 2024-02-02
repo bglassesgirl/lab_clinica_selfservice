@@ -13,7 +13,7 @@ class _SpashPageState extends State<SpashPage> {
   @override
   void initState(){
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Navigator.of(context).pushReplacementNamed('/auth/login');
+      Navigator.of(context).pushReplacementNamed('/home');
     });
     super.initState();
   }
