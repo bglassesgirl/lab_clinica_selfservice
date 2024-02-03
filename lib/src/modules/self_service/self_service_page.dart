@@ -22,9 +22,8 @@ class _SelfServicePageState extends State<SelfServicePage> with MessageViewMixin
     WidgetsBinding.instance.addPostFrameCallback((_) {
         controller.startProcess();
 
-        effect(() => {  }
-         var baseRoute = '/self-service';
-
+        effect(() {
+          var baseRoute = '/self-service';
           final step = controller.step;
           switch(step){
             case FormSteps.none:
@@ -42,10 +41,9 @@ class _SelfServicePageState extends State<SelfServicePage> with MessageViewMixin
             case FormSteps.restart:
                return;
           }
-          Navigator.of(context).pushNamed(baseRoute);
+           Navigator.of(context).pushReplacementNamed(baseRoute) ;
         });
     });
-
     super.initState();
   }
 
