@@ -62,7 +62,9 @@ class _LoginPageState extends State<LoginPage> with MessageViewMixin{
                   color: Colors.white, borderRadius: BorderRadius.circular(16)),
               child: Form(
                 key: formKey,
-                child: Column(mainAxisSize: MainAxisSize.min, children: [
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
                   const Text(
                     'Login',
                     style: LabClinicasTheme.titleStyle,

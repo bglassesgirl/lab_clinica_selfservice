@@ -59,71 +59,67 @@ class _WhoIAmPageState extends State<WhoIAmPage> {
             var sizeOf = MediaQuery.sizeOf(context);
             return SingleChildScrollView(
                 child: Container(
-              padding: const EdgeInsets.all(40),
-              constraints: BoxConstraints(minWidth: constrains.maxHeight),
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
+                  padding: const EdgeInsets.all(40),
+                  constraints: BoxConstraints(maxHeight: sizeOf.height),
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
                       image: AssetImage('assets/images/background_login.png'),
-                      fit: BoxFit.cover)),
-              child: Center(
-                  child: Container(
-                width: sizeOf.width * .8,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    children: [
-                      Image.asset('assets/images/logo_vertical.png'),
-                      const SizedBox(
-                        height: 48,
-                      ),
-                      const Text(
-                        'Bem vindo!',
-                        style: LabClinicasTheme.titleStyle,
-                      ),
-                      const SizedBox(
-                        height: 48,
-                      ),
-                      TextFormField(
-                        controller: nameEC,
-                        validator: Validatorless.required('Nome obrigátorio'),
-                        decoration: const InputDecoration(
-                            label: Text('Digite o seu nome:')),
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      TextFormField(
-                        controller: lastNameEC,
-                        validator:
-                            Validatorless.required('Sobrenome obrigátorio'),
-                        decoration: const InputDecoration(
-                            label: Text('Digite o seu sobrenome:')),
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      SizedBox(
-                        width: sizeOf.width * .8,
-                        height: 48,
-                        child: ElevatedButton(
-                            onPressed: () {
-                              final valid =
-                                  formKey.currentState?.validate() ?? false;
-                              if (valid) {
-                                selfServiceController.setWhoIAmDataStepAndNext(
-                                    nameEC.text, lastNameEC.text);
-                              }
-                            },
-                            child: const Text('Continuar')),
-                      )
-                    ],
+                      fit: BoxFit.cover)
                   ),
-                ),
-              )),
+                  child: Center(
+                    child: Container(
+                      padding: const EdgeInsets.all(40),
+                      width: sizeOf.width * .8,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.asset('assets/images/logo_vertical.png'),
+                        const SizedBox(
+                          height: 48,
+                        ),
+                        TextFormField(
+                          controller: nameEC,
+                          validator: Validatorless.required('Nome obrigátorio'),
+                          decoration: const InputDecoration(
+                              label: Text('Digite o seu nome:')),
+                        ),
+                        const SizedBox(
+                          height: 24,
+                        ),
+                        TextFormField(
+                          controller: lastNameEC,
+                          validator:
+                              Validatorless.required('Sobrenome obrigátorio'),
+                          decoration: const InputDecoration(
+                              label: Text('Digite o seu sobrenome:')),
+                        ),
+                        const SizedBox(
+                          height: 24,
+                        ),
+                        SizedBox(
+                          width: sizeOf.width * .8,
+                          height: 48,
+                          child: ElevatedButton(
+                              onPressed: () {
+                                final valid =
+                                    formKey.currentState?.validate() ?? false;
+                                if (valid) {
+                                  selfServiceController.setWhoIAmDataStepAndNext(
+                                      nameEC.text, lastNameEC.text);
+                                }
+                              },
+                              child: const Text('Continuar')),
+                        )
+                      ],
+                    ),
+                  ),
+                )),
             ));
           })),
     );

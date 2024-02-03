@@ -23,7 +23,7 @@ class _SelfServicePageState extends State<SelfServicePage> with MessageViewMixin
         controller.startProcess();
 
         effect(() {
-          var baseRoute = '/self-service';
+          var baseRoute = '/self-service/';
           final step = controller.step;
           switch(step){
             case FormSteps.none:
@@ -41,7 +41,7 @@ class _SelfServicePageState extends State<SelfServicePage> with MessageViewMixin
             case FormSteps.restart:
                return;
           }
-           Navigator.of(context).pushReplacementNamed(baseRoute) ;
+           Navigator.of(context).pushNamed(baseRoute) ;
         });
     });
     super.initState();
