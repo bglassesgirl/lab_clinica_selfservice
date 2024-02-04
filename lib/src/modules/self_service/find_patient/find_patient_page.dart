@@ -58,7 +58,7 @@ class _FindPatientPageState extends State<FindPatientPage> with MessageViewMixin
           return SingleChildScrollView(
               child: Container(
                 padding: const EdgeInsets.all(40),
-                constraints: BoxConstraints(minWidth: sizeOf.height),
+                constraints: BoxConstraints(maxHeight: sizeOf.height),
                 decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/images/background_login.png'),
@@ -88,7 +88,7 @@ class _FindPatientPageState extends State<FindPatientPage> with MessageViewMixin
                         ],
                         validator: Validatorless.required('CPF obrigátorio'),
                         decoration: const InputDecoration(
-                            label: Text('Digite o CPF do paciente:')),
+                            label: Text('Digite o CPF do paciente? ')),
                       ),
                       Row(
                         children: [

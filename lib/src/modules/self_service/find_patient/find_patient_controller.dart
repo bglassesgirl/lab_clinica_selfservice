@@ -20,7 +20,7 @@ class FindPatientController with MessageStateMixin {
   bool? get patientNotFound => _patientNotFound();
   PatientModel? get patient => _patient();
 
-  Future<void> findPatientByDocument(String document)async {
+  Future<void> findPatientByDocument(String document) async {
     final patientResult = await _patientRepository.findPatientbyDocument(document);
 
     bool patientNotFound;
@@ -40,7 +40,7 @@ class FindPatientController with MessageStateMixin {
 
     batch(() {
       _patient.value = patient;
-     _patientNotFound.forceUpdate(patientNotFound);
+      _patientNotFound.forceUpdate(patientNotFound);
     });
   }
 
