@@ -9,6 +9,7 @@ import 'package:clinicas_self_service/src/modules/self_service/patient/patient_p
 import 'package:clinicas_self_service/src/modules/self_service/self_service_controller.dart';
 import 'package:clinicas_self_service/src/modules/self_service/self_service_page.dart';
 import 'package:clinicas_self_service/src/modules/self_service/who_i_am/who_i_am_page.dart';
+import 'package:clinicas_self_service/src/repositories/patients/patient_repository_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
@@ -16,7 +17,8 @@ class SelfServiceModule extends FlutterGetItModule {
 
   @override
   List<Bind<Object>> get bindings =>  [
-    Bind.lazySingleton((i) => SelfServiceController())
+    Bind.lazySingleton((i) => SelfServiceController()),
+    Bind.lazySingleton((i) => PatientRepositoryImpl(restClient: i()))
   ];
 
 
@@ -27,7 +29,7 @@ class SelfServiceModule extends FlutterGetItModule {
   Map<String, WidgetBuilder> get pages => {
     '/': (context) => const SelfServicePage(),
     '/whoIAm': (context) => const WhoIAmPage(),
-    '/finding-patient': (context) => const FindPatientRouter(),
+    '/find-patient': (context) => const FindPatientRouter(),
     '/patient': (context) => const PatientPage(),
     '/documents': (context) => const DocumentsPage(),
     '/documents/scan': (context) => const DocumentsScanPage(),
