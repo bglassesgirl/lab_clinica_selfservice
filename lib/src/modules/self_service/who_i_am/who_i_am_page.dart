@@ -77,6 +77,7 @@ class _WhoIAmPageState extends State<WhoIAmPage> {
                   child: Form(
                     key: formKey,
                     child: Column(
+                      // para deixar o box do tamanho dos campos
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.asset('assets/images/logo_vertical.png'),
